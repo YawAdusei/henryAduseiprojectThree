@@ -1,0 +1,58 @@
+@import 'setup';
+@import 'baseStyles';
+
+
+
+header {
+    height: 10vh;
+
+}
+
+button {
+    border: none;
+    padding: 10px;
+}
+
+button:hover, button:focus {
+    color: white;
+    background-color: black;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+
+nav ul, button {
+    text-transform: uppercase;
+}
+
+nav ul {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+ul li {
+    margin: 10px;
+}
+
+form {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.headerContent {
+    text-align: center;
+}
+
+.playerImageContent {
+    text-align: center;
+}
+
+.playerImageContent img {
+    width: 40%;
+    margin: 0 auto;
+}
+

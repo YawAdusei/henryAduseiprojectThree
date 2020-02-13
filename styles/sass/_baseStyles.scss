@@ -1,0 +1,49 @@
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    background-color: lightblue;
+    font-family: 'Nobile', sans-serif;
+}
+
+
+
+.wrapper {
+    width: 80%;
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+img {
+    width: 100%;
+}
+
+h1 {
+    font-family: 'Holtwood One SC', serif;
+    font-size: 9rem;
+}
+
+.results {
+    width: 100px;
+    color: red;
+    float: right;
+    font-size: 2.5rem;
+}
+
+.playerName {
+    color: #000000;
+    text-transform: uppercase;
+    font-family: 'Holtwood One SC', serif;
+
+}

@@ -369,6 +369,7 @@ form input {
 button {
   border: none;
   padding: 10px;
+  background-color: darkgrey;
 }
 
 button:hover, button:focus {

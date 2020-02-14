@@ -241,7 +241,11 @@ html {
 
 body {
   font-size: 1.6rem;
-  background-color: lightblue;
+  background-color: black;
+  color: white;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   font-family: 'Nobile', sans-serif;
 }
 
@@ -267,23 +271,99 @@ img {
 h1 {
   font-family: 'Holtwood One SC', serif;
   font-size: 9rem;
+  text-shadow: 5px 5px 5px lightgrey;
+}
+
+nav {
+  font-size: 2rem;
+}
+
+a {
+  color: white;
+}
+
+a:hover, a:focus {
+  color: grey;
 }
 
 .results {
-  width: 100px;
-  color: red;
-  float: right;
+  width: 300px;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
   font-size: 2.5rem;
+  margin: 10px;
 }
 
 .playerName {
-  color: #000000;
+  color: #ffffff;
   text-transform: uppercase;
   font-family: 'Holtwood One SC', serif;
+  font-size: 2.5rem;
+  margin: 10px 0;
 }
 
-header {
-  height: 10vh;
+.startGame {
+  padding: 30px;
+  font-size: 4rem;
+  margin: 0 auto;
+}
+
+.playerImageContent form {
+  margin-top: 20px;
+}
+
+.score {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 3rem;
+  margin: 20px 0;
+}
+
+form input {
+  margin: 15px;
+}
+
+.gameInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.tagline {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media (max-width: 768px) {
+  nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
 }
 
 button {
@@ -314,6 +394,8 @@ nav ul {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
+  padding: 10px 15px;
+  margin: 10px;
 }
 
 ul li {

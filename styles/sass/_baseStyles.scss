@@ -4,11 +4,14 @@ html {
 
 body {
     font-size: 1.6rem;
-    background-color: lightblue;
+    background-color: black;
+    color: white;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     font-family: 'Nobile', sans-serif;
+
 }
-
-
 
 .wrapper {
     width: 80%;
@@ -32,18 +35,69 @@ img {
 h1 {
     font-family: 'Holtwood One SC', serif;
     font-size: 9rem;
+    text-shadow:   5px 5px 5px lightgrey;
+}
+
+nav { 
+    font-size: 2rem;
+}
+
+a {
+    color: white;
+} 
+
+a:hover, a:focus {
+    color: grey;
 }
 
 .results {
-    width: 100px;
-    color: red;
-    float: right;
+    width: 300px;
+    color: white;
+    display: flex;
+    text-align: center;
     font-size: 2.5rem;
+    margin: 10px;
+
 }
 
 .playerName {
-    color: #000000;
+    color: #ffffff;
     text-transform: uppercase;
     font-family: 'Holtwood One SC', serif;
+    font-size: 2.5rem;
+    margin: 10px 0;
+}
 
+.startGame {
+    padding: 30px;
+    font-size: 4rem;
+    margin: 0 auto;
+}
+
+.playerImageContent form {
+    margin-top: 20px;
+
+}
+
+.score {
+    display: flex;
+    justify-content: center;
+    font-size: 3rem;
+    margin: 20px 0;
+}
+
+form input {
+    margin: 15px;
+}
+
+.gameInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tagline {
+    display: flex;
+    justify-content: center;
 }

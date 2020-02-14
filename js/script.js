@@ -28,7 +28,6 @@ $(function() {
     $('.playerImageContent form').on('submit', function(event) {
         event.preventDefault();
         console.log(this);
-        
         gameApp.getUserAnswer();
         gameApp.checkInput();
         gameApp.gameStart();
@@ -52,7 +51,6 @@ gameApp.playAgain = function() {
     $('.playAgain').on('click', function() {
         gameApp.restartGame();
         gameApp.getRandomPlayerImage();
-
     });
 }
 
@@ -95,7 +93,6 @@ gameApp.checkInput = function() {
     //   Getting the answer from the user input in the text box and storing it inside a variable
 
     gameApp.getUserAnswer = function() {
-        console.log(gameApp.answers);
         
         let userAnswer = $('.playerImageContent input').val().toLowerCase();
         gameApp.userAnswer = userAnswer;
@@ -110,13 +107,6 @@ gameApp.checkInput = function() {
     gameApp.updateScoreBoard = function(score) {
         $('.score').text(`Score: ${score.correct} / ${score.correct + score.incorrect}`);  
     }
-
-    // update the results screen after the game is complete 
-    // gameApp.gameOver = function (answers) {
-    //     $('.results').text(`You got ${gameApp.userScore.correct} out of ${gameApp.numOfPlayers} correct`);
-    //     // gameApp.updateScoreBoard(gameApp.answers);
-    //     alert('GAME OVER');
-    // }
 
     // restart game function
     gameApp.restartGame = function() {
@@ -135,10 +125,9 @@ gameApp.checkInput = function() {
 
     //  function for gameOver
     gameApp.gameOver = function(score) {
-        $(".results").text(`You got ${gameApp.userScore.correct} out of ${gameApp.numOfPlayers} correct`);
-        // $('.playAgain').css('display', 'flex');
-        // gameApp.restartGame();
-        // gameApp.gameStart(); 
+        $(".playerName").text(`You got ${gameApp.userScore.correct} out of ${gameApp.numOfPlayers} correct.`);
+        $('.playerName').css('font-size', '2rem');
+
     }
 
     // function for start game 
@@ -150,9 +139,6 @@ gameApp.checkInput = function() {
         });
     }
 
-    // Event listener for start button 
-
-    // Event listener for play again button
 
 
 

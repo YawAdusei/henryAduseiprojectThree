@@ -1,12 +1,12 @@
 @import 'setup';
 @import 'baseStyles';
+@import 'mediaQueries';
 
 
 
-header {
-    height: 10vh;
-
-}
+// header {
+//     height: 10vh;
+// }
 
 button {
     border: none;
@@ -32,6 +32,8 @@ nav ul {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
+    padding: 10px 15px;
+    margin: 10px;
 }
 
 ul li {

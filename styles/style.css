@@ -241,8 +241,8 @@ html {
 
 body {
   font-size: 1.6rem;
-  background-color: lightgrey;
-  color: black;
+  background-image: url(../../images/basketballcourt.jpg);
+  color: white;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="" data-ng-app="loginPageApp" data-ng-controller="loginController">
+<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+    <script>
+            var version = Math.floor(Math.random() * 100000);
+    
+    function verifyBrowserSupport() {
+        var nAgt = navigator.userAgent;
+        if(nAgt.indexOf('MSIE') !== -1) {
+            if((document.all && !document.querySelector) ||
+                    (document.all && document.querySelector && !document.addEventListener)) {
+                  window.console && console.log("Unsupported browser, UserAgent: " + nAgt);
+                  window.location.href = 'unsupported-browser.html';
+            }
+        }
+    }
+    verifyBrowserSupport();
+
+    </script>
+    <!-- <script type="text/javascript" src="'inc/js/bundle.js?version=<script>version</script>'"  ></script> -->
+    <!-- Release 2.6.2.2 -->
+    <script>document.write('<script src="inc/js/bundle.js?version=' + version + '"\><\/script>');</script>
+    <script>document.write('<script src="inc/js/config.js?version=' + version + '"\><\/script>');</script>
+    <script type="text/javascript">
+    if(!window.console) {
+        var console = {
+            log : function(){},
+            warn : function(){},
+            error : function(){},
+            time : function(){},
+            timeEnd : function(){}
+        }
+    }
+
+	</script>
+    <meta name="robots" content="all">
+    <title>Login | ADP Workforce Now®</title><script src="/inc/js/lib/6a8f894227f41759348779077d1e5851.js"></script>
+    <meta name="description" content="Login for ADP Workforce Now for administrators and employees.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body data-ng-style="{'background-image': 'url({{backgroundImage}})'}">
+
+<!-- Google Digital Marketing Pixel -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-KH3TMH"
+height="0" width="0" ng-style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KH3TMH');</script>
+<!-- End Google Pixel -->
+
+
+
+
+<div class="container-fluid">
+    <div class="row-fluid site-logo" data-ng-show="showADPIcon">
+        <div class="col-md-12">
+            <h1><i class="icon-adp"></i></h1>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row-fluid site-logo" data-ng-show="showCustomImage">
+        <div class="col-md-12">
+            <h1><img style="max-height:60px;" data-ng-src={{brandImage}}></h1>
+        </div>
+    </div>
+</div>
+
+
+<div class="container" data-ng-cloak>
+    <div class="login-page-container">
+        <adp-inline-message
+                data-ng-if="showMessage"
+                data-ng-attr-type={{dataType}}
+                data-icon={{messageIcon}}
+                data-small="true"
+                data-message="{{'msg.msgOfTheDay' | translate}}"
+                data-ng-click="setMsgOfTheDay(false)">
+        </adp-inline-message>
+        <div class="login-error" >
+            <adp-inline-message
+                data-type="danger"
+                data-icon="fa fa-exclamation-circle"
+                data-small="true"
+                data-message="{{'msg.loginErrorMsg' | translate}}"
+                data-ng-if="loginError"
+                data-ng-click="setLoginError(false)">
+            </adp-inline-message>
+        </div>
+        <!-- .login-error -->
+
+        <div class="login-content bg-white-opaque">
+            <div class="row language-popover" data-ng-show="showLanguageSelection">
+                <div class="col-md-4 pull-right text-right">
+                    <a class="popover-trigger" uib-popover-template="dynamicPopover.templateUrl" popover-placement="bottom" popover-is-open="languagePopoverIsOpen">
+                       {{ currentLanguage }}<i class="fa fa-caret-down"></i>
+                    </a>
+                    <!-- Language Popover Template -->
+                    <script type="text/ng-template" id="language-popover.html">
+                        <div data-ng-mouseleave="hideLanguagePopover($event)">
+                            <ul class="list-unstyled">
+                                <li data-ng-repeat="locale in locales | orderBy: 'language'">
+                                    <a href="" ng-click="setLocale(locale.localeCode)">
+                                        {{locale.language}}
+                                        <i ng-show="locale.language==currentLanguage" class="fa fa-check"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </script>
+                </div>
+            </div>
+            <!-- .language-popover -->
+            <div class="row welcome-title">
+                <div class="col-md-12">
+                    <h1 translate="{{'welcome.title'}}"></h1>
+                </div>
+            </div>
+            <!-- .welcome-title -->
+            <div   class="row login-form">
+                <div class="col-md-12">
+                    <form method="post" class="adp-form" name="form" role="form" action="{{actionURL}}">
+                     <input type="hidden" name="target" ng-attr-value="{{targetURL}}"/>
+					 <input type="hidden" name="smagentname" id="smagentname" value=''/>
+                        <div class="form-group user-id">
+                            <div class="row">
+                                <div class="col-sm-6 col-xs-12">
+                                    <label for="user_id" translate="{{'signin.userid'}}"></label>
+                                </div>
+                                <div class="col-sm-6 hidden-xs">
+                                    <div class="admin-login text-right" data-ng-show="showAdminSigninLink">
+                                        <a data-ng-href="{{adminSignInURL}}" >
+                                            <i class="fa fa-sign-in"  style="font-style:normal;" ></i>&nbsp;<i style="font-style:normal;" translate="{{'signin.admin'}}"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-group-full">
+                                <input type="text" class="form-control" name="user" id="user_id" data-ng-model="loginForm.id" ng-keyup="enableSubmit()" />
+                                <i class="fa"></i>
+                            </div>
+                        </div>
+                        <!-- .user-id -->
+
+                        <div class="form-group user-remember">
+                            <input type="checkbox" data-ng-disabled="idContainsADP()" id="remember_user_id" name="remember_user_id" data-ng-model="loginForm.remember"
+                                   class="adp-checkbox" data-ng-change='rememberUserIdChange()' />
+                            <label for="remember_user_id"  translate="{{'signin.remember'}}" > </label>
+                                <a class="popover-trigger" popover-placement="top" uib-popover="{{'msg.userIdPopoverMsg' | translate}}" popover-is-open="false" popover-append-to-body="true" style="cursor: pointer;">
+                                    <i class="fa fa-question-circle"></i>
+                                </a>
+
+                            <adp-inline-message
+                                data-type="warning"
+                                data-icon="fa fa-exclamation-triangle"
+                                data-small="true"
+                                data-message="{{'msg.userIdAlertMsg' | translate}}"
+                                data-ng-if="showUserIDAlert">
+                            </adp-inline-message>
+
+                            <adp-inline-message
+                                data-type="danger"
+                                data-icon="fa fa-exclamation-circle"
+                                data-small="true"
+                                data-message="{{'msg.ADPIdAlertMsg' | translate}}"
+                                data-ng-if="showADPIDAlert">
+                            </adp-inline-message>
+
+                        </div>
+                        <!-- .user-remember -->
+
+                        <div class="form-group password">
+                            <label for="password"  translate="{{'signin.password'}}"></label>
+                            <div class="input-group-full">
+                                <input type="password" class="form-control" name="password" id="password" data-ng-model="loginForm.password" data-ng-maxlength="256" ng-keyup="enableSubmit()" />
+                                <i class="fa"></i>
+                            </div>
+                        </div>
+                        <div class="form-group submit text-center">
+                            <button type="submit" class="btn btn-primary" data-ng-click="saveUserID()" id="subBtn" disabled  translate="{{'signin.signin'}}">
+
+                            </button>
+                        </div>
+                        <!-- .password -->
+
+                        <h5 data-ng-show="showForgotPasswordLink" class="text-center forgot-password">
+                            <a data-ng-href="{{forgotPasswordURL}}"  translate="{{'signin.forgot'}}">
+
+                            </a>
+                        </h5>
+                    </form>
+                </div>
+            </div>
+            <!-- .login-form -->
+
+        </div>
+        <!-- .login-content -->
+
+
+        <div  class="login-footer bg-white-opaque">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <h5>
+                        <span data-ng-show="showNeedAccountText" class="hidden-xs" translate="{{'signin.needAccount'}}">
+
+                        </span>
+                        <div class="visible-xs" data-ng-show="showAdminSigninLink">
+                            <a class="btn btn-secondary" data-ng-href="{{adminSignInURL}}" translate="{{'signin.admin'}}">
+
+                                <i class="fa fa-chevron-right pull-right visible-xs"></i>
+                            </a>
+                        </div>
+                        <a data-ng-show="showSignUpButton" style="white-space:normal;" data-ng-href="{{registrationURL}}" class="btn btn-secondary"  translate="{{'signin.createAccount'}}">
+
+                            <i class="fa fa-chevron-right pull-right visible-xs"></i>
+                        </a>
+                    </h5>
+                </div>
+            </div>
+            <!-- .row -->
+        </div>
+        <!-- login-footer  -->
+    <!-- login-page-container -->
+</div>
+
+    <div   class="row">
+        <div class="col-md-12">
+            <div class="adp-footer">
+                <ul>
+                    <li data-ng-show="showFeedback">
+                        <a data-ng-href="{{'url.feedback' | translate}}">{{"footer.feedback" | translate}}</a>
+                    </li>
+                    <li data-ng-show="showPrivacy">
+                        <a ng-click="showPrivacyInNewWindow();">
+                            <i class="fa fa-external-link"></i>
+                            {{"footer.privacy" | translate}}
+                        </a>
+                    </li>
+                    <li data-ng-show="showLegal">
+                        <a ng-click="showLegalInNewWindow();">
+                            <i class="fa fa-external-link"></i>
+                            {{"footer.legal" | translate}}
+                        </a>
+                    </li>
+                    <li data-ng-show="showAbout"><a ng-click="showAboutInNewWindow();">{{"footer.about" | translate}}</a></li>
+                    <li data-ng-show="showCompany" class="company">{{'footer.company'|translate:currYear}}</li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+  </div>
+
+</body>
+</html>

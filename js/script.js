@@ -27,7 +27,6 @@ $(function() {
     // form submission event lister
     $('.playerImageContent form').on('submit', function(event) {
         event.preventDefault();
-        console.log(this);
         gameApp.getUserAnswer();
         gameApp.checkInput();
         gameApp.gameStart();
@@ -76,7 +75,7 @@ gameApp.checkInput = function() {
        let randomNumber = gameApp.getRandomNumber();
        const randomPlayerImage = players[randomNumber];
     
-    // check that a player's image has not yet been used - GOOD
+    // check that a player's image has not yet been used
     if (gameApp.playersShown.indexOf(`${randomPlayerImage.team}`) >= 0 && gameApp.playersShown.length > 0) {
         gameApp.getRandomPlayerImage();
     } else {

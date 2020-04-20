@@ -241,7 +241,7 @@ html {
 
 body {
   font-size: 1.6rem;
-  background-color: black;
+  background-image: url(../../images/basketballcourt.jpg);
   color: white;
   background-repeat: no-repeat;
   background-size: cover;
@@ -353,6 +353,10 @@ form input {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+footer {
+  text-align: center;
 }
 
 @media (max-width: 768px) {

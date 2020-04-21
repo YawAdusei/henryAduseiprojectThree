@@ -241,7 +241,7 @@ html {
 
 body {
   font-size: 1.6rem;
-  background-image: url("../../images/basketballcourt.jpg");
+  background-color: black;
   color: white;
   background-repeat: no-repeat;
   background-size: cover;

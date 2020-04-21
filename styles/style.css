@@ -241,12 +241,14 @@ html {
 
 body {
   font-size: 1.6rem;
-  background-color: black;
-  color: white;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(60%, darkgrey), to(grey));
+  background: linear-gradient(to top, darkgrey 60%, grey);
+  color: black;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   font-family: 'Nobile', sans-serif;
+  height: 100vh;
 }
 
 .wrapper {
@@ -271,19 +273,19 @@ img {
 h1 {
   font-family: 'Holtwood One SC', serif;
   font-size: 9rem;
-  text-shadow: 5px 5px 5px lightgrey;
+  text-shadow: 5px 5px 5px whitesmoke;
 }
 
 nav {
-  font-size: 2rem;
+  font-size: 3rem;
 }
 
 a {
-  color: white;
+  color: black;
 }
 
 a:hover, a:focus {
-  color: grey;
+  color: whitesmoke;
 }
 
 .results {
@@ -298,7 +300,7 @@ a:hover, a:focus {
 }
 
 .playerName {
-  color: #ffffff;
+  color: black;
   text-transform: uppercase;
   font-family: 'Holtwood One SC', serif;
   font-size: 2.5rem;
@@ -368,17 +370,21 @@ footer {
         -ms-flex-pack: center;
             justify-content: center;
   }
+  .playerImageContent {
+    width: 100%;
+  }
 }
 
 button {
   border: none;
   padding: 10px;
-  background-color: darkgrey;
+  background-color: black;
+  color: whitesmoke;
 }
 
 button:hover, button:focus {
-  color: white;
-  background-color: black;
+  color: black;
+  background-color: lightgrey;
 }
 
 a {
@@ -423,4 +429,6 @@ form {
 .playerImageContent img {
   width: 40%;
   margin: 0 auto;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }

@@ -11,12 +11,13 @@
 button {
     border: none;
     padding: 10px;
-    background-color:darkgrey;
+    background-color: black;
+    color: whitesmoke;
 }
 
 button:hover, button:focus {
-    color: white;
-    background-color: black;
+    color: black;
+    background-color: lightgrey;
 }
 
 a {
@@ -57,5 +58,6 @@ form {
 .playerImageContent img {
     width: 40%;
     margin: 0 auto;
+    transition: all 0.5s;
 }
 
